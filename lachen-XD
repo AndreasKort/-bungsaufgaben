@@ -1,0 +1,52 @@
+import random
+
+# Listen von Wörtern und Phrasen, die zusammen echt geile Sachen ergeben XD
+
+subjects = ["Ein grüner Dinosaurier", "Ein frecher Pinguin", "Ein furchtloser Astronaut", "Ein hyperaktiver Roboter", "Ein verzweifelter Datenbank-Administrator", "Ein übermotivierter Cyberspace-Cowboy", "Ein humorvoller Chatbot", "Ein digitaler Superheld"]
+verbs = ["tanzt", "fliegt", "lacht über", "hämmert auf", "verschluckt", "programmiert", "hackt", "surft"]
+objects = ["eine Banane", "einen Regenbogen", "eine Tasse Kaffee", "einen alten Monitor", "einen Stapel Kabel", "einen Haufen Nullen und Einsen", "einen Roboterhund", "eine Rakete"]
+places = ["auf dem Mond", "im Dschungel", "in der Wüste", "in einem Computerlabor", "in der Cloud", "im virtuellen Raum", "in einem Technologie-Wunderland", "auf einem Datenhighway"]
+
+introductions = ["In einer fernen Galaxie", "In einem futuristischen Labor", "In einer verschneiten Cyberstadt", "In einer fantastischen Zukunft"]
+actions = ["entdeckte", "erforschte", "besiegte", "erschuf", "entwickelte", "begegnete"]
+highlights = ["einen außerirdischen Freund", "eine Zeitmaschine", "eine KI mit Bewusstsein", "ein Portal zur Parallelwelt"]
+endings = ["und lebte glücklich bis ans Ende seiner Tage.", "und veränderte die Welt für immer.", "und fand die wahre Bedeutung von Technologie.", "und hatte viele weitere Abenteuer."]
+
+print("Willkommen zum Zufallsgeschichten-Generator versuch nicht zu lachen!")  # Begrüßung
+
+while True:  # Hier wird die Anzahl der Sätze in der Geschichte gefragt
+    num_sentences = int(input("Geben Sie die Anzahl der Sätze in der Geschichte ein: "))
+
+    story = ""  # Erstellen einer leeren Geschichte
+
+    # Erstelle die angegebene Menge an Sätzen
+    for _ in range(num_sentences):
+        # Wähle zufällige Elemente aus den Listen aus
+        subject = random.choice(subjects)
+        verb = random.choice(verbs)
+        obj = random.choice(objects)
+        place = random.choice(places)
+
+        # Füge alle gewürfelten Sätze zur Geschichte hinzu
+        sentence = f"{subject} {verb} {obj} {place}. "
+        story += sentence
+
+    # Wähle zufällige Einführung, Handlung, Höhepunkt und Ende
+    introduction = random.choice(introductions)
+    action = random.choice(actions)
+    highlight = random.choice(highlights)
+    ending = random.choice(endings)
+
+    # Generiere die Geschichte
+    story = f"{introduction} {random.choice(subjects)} {action} {random.choice(objects)}. "
+    story += f"Dort {action} {random.choice(subjects)} {highlight}. "
+    story += f"Schließlich {action} {random.choice(subjects)} {ending}"
+
+    print(story)  # Gib die Geschichte aus
+
+    user_input = input("Möchten Sie eine weitere Geschichte generieren? (Ja/Nein): ")  # Benutzer fragen, ob er eine weitere Geschichte generieren möchte
+
+    # Überprüfe, ob die Eingabe nicht "ja" ist
+    if user_input.lower() != "ja":
+        print("Vielen Dank und auf Wiedersehen!")
+        break  # Wenn die Eingabe nicht "ja" ist, beende die Schleife
